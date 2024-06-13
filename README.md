@@ -10,6 +10,7 @@ This project demonstrates temperature control using an Arduino Nano and a potent
 - Fan
 - Breadboard
 - Serial Analyzer (for data visualization)
+- npn trasister
 
 ## Mathematical Concepts
 
@@ -20,8 +21,22 @@ The potentiometer outputs an analog voltage proportional to the simulated temper
 ### Temperature Calculation
 
 The analog voltage (`milliVolt`) is converted to temperature in Celsius (`temperature_C`) and Fahrenheit (`temperature_F`):
-\[ \text{temperature\_C} = \frac{\text{milliVolt}}{10} \]
-\[ \text{temperature\_F} = \text{temperature\_C} \times \frac{9}{5} + 32 \]
+1. **To convert millivolts to degrees Celsius (°C)**:
+   - Substitute the millivolt value into the formula:
+     ```
+     temperature_C = milliVolt / 10
+     ```
+   - Example: If `milliVolt` is 1000 mV, then `temperature_C = 1000 / 10 = 100` °C.
+
+2. **To convert degrees Celsius (°C) to degrees Fahrenheit (°F)**:
+   - First, calculate the temperature in degrees Celsius using the above formula.
+   - Then, substitute the result into the Fahrenheit conversion formula:
+     ```
+     temperature_F = temperature_C * 9/5 + 32
+     ```
+   - Example: If `temperature_C` is 100 °C, then `temperature_F = 100 * 9/5 + 32 = 212` °F.
+
+
 
 ### Temperature Threshold and Control
 
@@ -33,7 +48,7 @@ The project sets a temperature threshold of 70°C. When the simulated temperatur
    - Connect the potentiometer, buzzer, and fan to the Arduino Nano as per the circuit diagram.
 
 2. **Upload Code**:
-   - Upload the provided Arduino sketch to your Arduino Nano using the Arduino IDE.
+   - Cheakout the provided Arduino sketch in the repository.
 
 3. **Monitor Temperature**:
    - Open the Serial Monitor in the Arduino IDE to view temperature readings and control actions.
